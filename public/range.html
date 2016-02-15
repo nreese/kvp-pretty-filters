@@ -1,0 +1,8 @@
+<div ng-controller="KvpRangeController" class="kvp-pretty-filter">
+  <div class="kvp-range-filter">
+    <input type="number" ng-model="min" ng-change="applyFilter()" ng-model-options='{ debounce: 1000 }' placeholder="min">
+    <span style="padding: 20px;">to</span> 
+    <input type="number" ng-model="max" ng-change="applyFilter()" ng-model-options='{ debounce: 1000 }' placeholder="max">
+    <p class="kvp-warn">{{msg}}</p>
+  </div>
+</div>

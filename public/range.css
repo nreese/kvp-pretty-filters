@@ -1,0 +1,28 @@
+.kvp-pretty-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  color: #555;
+  padding: 1em;
+  font-weight: bold;
+  font-size: 24pt;
+}
+
+input {
+  font-size: 24pt;
+  width: 3em;
+}
+
+.kvp-warn {
+  font-size: 12pt;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
