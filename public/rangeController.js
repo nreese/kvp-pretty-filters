@@ -2,8 +2,6 @@ var module = require('ui/modules').get('kvp-pretty-filters');
 module.controller('KvpRangeController', function($scope, Private) {
   var queryFilter = Private(require('ui/filter_bar/query_filter'));
   var buildRangeFilter = require('ui/filter_manager/lib/range');
-  var key = $scope.vis.aggs.bySchemaName['range'][0].params.field.name;
-  var index = $scope.vis.indexPattern.title;
   
   $scope.applyFilter = function() {
     if(!$scope.min) {
@@ -14,8 +12,9 @@ module.controller('KvpRangeController', function($scope, Private) {
       $scope.msg = "Please specify max value";
       return;
     }
+    var key = $scope.vis.aggs.bySchemaName['range'][0].params.field.name;
+    var index = $scope.vis.indexPattern.title;
     $scope.msg = "";
-
     if($scope.min > $scope.max) {
       var realMax = $scope.min;
       $scope.min = $scope.max;
@@ -43,6 +42,7 @@ module.controller('KvpRangeController', function($scope, Private) {
   //Filter can be created/updated/deleted from other visualizations
   //Monitor all responses and update control inputs accordingly
   $scope.$watch('esResponse', function(resp) {
+    var key = $scope.vis.aggs.bySchemaName['range'][0].params.field.name;
     var found = false;
     _.flatten([queryFilter.getAppFilters()]).forEach(function(it) {
       if(it.meta.key === key) {
